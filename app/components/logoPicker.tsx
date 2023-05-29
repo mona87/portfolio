@@ -11,7 +11,7 @@ const LogoPicker = () => {
   const router = useRouter();
 
   const handleResponse = async () => {
-    //console.log(prompt)
+    console.log(prompt)
     setLoading(true);
     const res = await fetch(`/api/configurator-app/${prompt}`,
     {
