@@ -1,9 +1,9 @@
 import {Configuration, OpenAIApi} from 'openai';
 import type {NextApiRequest, NextApiResponse,} from 'next';
 
-export const GET = async(req: NextApiRequest, res:NextApiResponse ) => {
-    return new Response(JSON.stringify({test: 'test'}))
-}
+// export const GET = async(req: NextApiRequest, res:NextApiResponse ) => {
+//     return new Response(JSON.stringify({test: 'test'}))
+// }
 
 export const POST = async(err:any, req:any ) => {
     try {
@@ -14,7 +14,7 @@ export const POST = async(err:any, req:any ) => {
         const openApi = new OpenAIApi(config);
 
 
-        console.log('req', req)
+  
         const {prompt} = req.params;
         // const completion = await openApi.createCompletion({
         //     model: 'text-davinci-003',
@@ -26,6 +26,7 @@ export const POST = async(err:any, req:any ) => {
             size: '512x512',
             response_format: 'b64_json'
         })
+        console.log('completion', completion)
         const image = completion.data.data[0].b64_json;
         return new Response(JSON.stringify(image), { status: 200 })
 

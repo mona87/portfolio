@@ -31,7 +31,7 @@ const LogoPicker = () => {
   return (
     <>
       {!loading && (
-        <img src={image || ""} alt="test" height="512" width="512" />
+        <img src={image || "http://"} alt="test" height="512" width="512" />
       )}
       {loading && <p>loading...</p>}
       <textarea onChange={(e)=>{
